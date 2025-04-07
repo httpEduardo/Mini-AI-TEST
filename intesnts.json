@@ -1,0 +1,24 @@
+{
+  "intents": [
+    {
+      "tag": "saudacao",
+      "patterns": ["Oi", "Olá", "E aí", "Bom dia", "Boa tarde"],
+      "responses": ["Olá!", "Oi, tudo bem?", "E aí! Como posso ajudar?"]
+    },
+    {
+      "tag": "despedida",
+      "patterns": ["Tchau", "Até mais", "Falou", "Até logo"],
+      "responses": ["Tchau!", "Até mais!", "Volte sempre!"]
+    },
+    {
+      "tag": "nome",
+      "patterns": ["Qual o seu nome?", "Como você se chama?", "Quem é você?"],
+      "responses": ["Sou um chatbot simples criado em Python!", "Me chamo PyBot."]
+    },
+    {
+      "tag": "piada",
+      "patterns": ["Me conte uma piada", "Você sabe piadas?", "Conte uma piada"],
+      "responses": ["Por que o computador foi preso? Porque ele executou um programa!", "O que o Python falou pro Java? Nada, porque eles não se falam."]
+    }
+  ]
+}
