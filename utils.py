@@ -1,15 +1,18 @@
-import nltk
-from nltk.stem import PorterStemmer
+import re
+import json
 
-stemmer = PorterStemmer()
-nltk.download('punkt')
+def normalize_input(text, slang_dict):
+    words = text.lower().split()
+    norm = [slang_dict.get(w, w) for w in words]
+    return " ".join(norm)
 
-def tokenize(sentence):
-    return nltk.word_tokenize(sentence)
+def classify_intent(message, intents):
+    for intent in intents["intents"]:
+        for pattern in intent["patterns"]:
+            if pattern.lower() in message:
+                return intent["tag"]
+    return "desconhecido"
 
-def stem(word):
-    return stemmer.stem(word.lower())
-
-def bag_of_words(sentence, all_words):
-    sentence_words = [stem(w) for w in tokenize(sentence)]
-    return [1 if w in sentence_words else 0 for w in all_words]
+def load_slang_dict(path):
+    with open(path, encoding='utf-8') as f:
+        return json.load(f)

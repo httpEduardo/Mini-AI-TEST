@@ -1,21 +1,17 @@
-import random
 import json
-import pickle
-from chatbot.utils import bag_of_words
+import random
+from utils import normalize_input, classify_intent, load_slang_dict
+from persona import generate_response
 
-with open('model/model.pkl', 'rb') as f:
-    model, all_words, tags = pickle.load(f)
-
-with open('data/intents.json', 'r') as f:
+with open("data/intents.json", encoding='utf-8') as f:
     intents = json.load(f)
 
-def get_response(msg):
-    bow = bag_of_words(msg, all_words)
-    result = model.predict([bow])[0]
-    tag = tags[result]
+with open("data/greentexts.json", encoding='utf-8') as f:
+    greentexts = json.load(f)
 
-    for intent in intents['intents']:
-        if intent['tag'] == tag:
-            return random.choice(intent['responses'])
+slang_dict = load_slang_dict("data/slang_dict.json")
 
-    return "Não entendi. Pode repetir?"
+def get_response(message):
+    norm = normalize_input(message, slang_dict)
+    intent = classify_intent(norm, intents)
+    return generate_response(intent, message, intents, greentexts)

@@ -1,9 +1,8 @@
-from chatbot.bot import get_response
+from bot import get_response
 
-print("Chatbot iniciado! (Digite 'sair' para encerrar)")
+print("Mini AI Channer Ativada. Diga algo:")
 while True:
     msg = input("Você: ")
-    if msg.lower() == 'sair':
+    if msg.lower() in ["sair", "exit", "quit"]:
         break
-    resp = get_response(msg)
-    print("Bot:", resp)
+    print("IA:", get_response(msg))

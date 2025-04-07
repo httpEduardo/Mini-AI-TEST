@@ -1,19 +1,68 @@
-# Chatbot IA Local
+# 🧠 Chatbot IA Local com Personalidade Channer
 
-Chatbot simples treinado com Python + NLP usando `nltk` e `sklearn`. Não precisa de internet, nem login em serviços externos.
+Chatbot avançado treinado em Python com NLP (nltk + sklearn), totalmente offline e com personalidade baseada em imageboards como 4chan e Reddit. Sem necessidade de APIs ou login em serviços externos.
 
-## Como usar
+---
+
+## 🚀 Como usar
 
 ```bash
 pip install -r requirements.txt
 python model/train_model.py
 python main.py
+```
 
-Como funciona
+---
 
-Os dados estão em data/intents.json
+## 📁 Estrutura
 
-O modelo é treinado em model/train_model.py
+- `data/intents.json`: intenções básicas do bot
+- `data/greentexts.json`: respostas no estilo greentext
+- `data/slang_dict.json`: dicionário de gírias e jargões de chans
+- `model/train_model.py`: treinamento do classificador com NLP
+- `main.py`: executa a IA no terminal
+- `bot.py`: conecta entrada, modelo e personalidade
+- `persona.py`: lógica de respostas com estilo informal e irônico
 
-O chatbot responde via terminal em main.py
+---
 
+## 🧩 Funcionalidades
+
+✅ Interpretação de frases com gírias channer
+✅ Respostas no estilo greentext (`>be me...`)
+✅ Base de conhecimento local com intents configuráveis
+✅ Estilo sarcástico, shitpost ou neutro baseado no contexto
+✅ Totalmente offline
+
+---
+
+## 🛠️ Funcionalidades Futuras
+
+🔸 **Filtro de conteúdo criminoso ou ilegal** (moderador interno)
+🔸 **Análise semântica profunda com embedding local**
+🔸 **Aprendizado contínuo a partir do histórico de conversa**
+🔸 **Geração de memes contextuais baseados na conversa**
+🔸 **Exportação de logs e modo debug para análise de chats**
+
+---
+
+## 👨‍💻 Requisitos
+
+- Python 3.9+
+- nltk
+- scikit-learn
+- numpy
+
+Tudo listado no `requirements.txt`
+
+---
+
+## 📦 Contribuições
+
+Contribuições são bem-vindas! Crie um fork e envie seu PR com melhorias, novos intents ou mais greentexts.
+
+---
+
+## 🕸️ Filosofia
+
+Esse projeto busca simular um bot com conhecimento da cultura channer, com vocabulário realista, ironia, e respostas autênticas para quem vive o submundo dos imageboards.
